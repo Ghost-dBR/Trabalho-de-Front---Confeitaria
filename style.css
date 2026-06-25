@@ -1,0 +1,361 @@
+/* Configurações Gerais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Central de Variáveis para Manter a Identidade Visual */
+:root {
+    --cor-escura: #5c3d2e;   /* Cor forte para Header, Footer e Títulos */
+    --cor-clara: #fff5eb;    /* Fundo creme suave para seções alternadas */
+    --cor-destaque: #d4a373; /* Tom dourado/bege para botões e preços */
+    --texto-claro: #ffffff;  /* Texto branco para contrastar com fundos escuros */
+}
+
+body {
+    background-color: #fcf8f2; /* Fundo geral claro e sofisticado */
+    color: #4a3b32;
+    line-height: 1.6;
+}
+
+/* --- CABEÇALHO (HEADER): Cor Escura --- */
+header {
+    background-color: var(--cor-escura);
+    color: var(--texto-claro);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-titulo h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.header-titulo p {
+    font-size: 14px;
+    color: #e6ccb2;
+    margin-top: 5px;
+}
+
+.header-nav {
+    display: flex;
+}
+
+/* --- COMPONENTE DE BOTÃO GENERALIZADO --- */
+.botão {
+    background-color: var(--cor-destaque);
+    color: var(--texto-claro);
+    border: none;
+    padding: 10px 20px;
+    margin-left: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+/* Efeito Hover nos Botões */
+.botão:hover {
+    background-color: #b07d50;
+    transform: translateY(-2px);
+}
+
+/* --- CONTEÚDO PRINCIPAL (MAIN) & SEÇÕES --- */
+.section-padding {
+    padding: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#inicio {
+    background-color: var(--cor-clara);
+    text-align: center;
+    border-bottom: 1px solid #e6ccb2;
+    border-radius: 0 0 12px 12px;
+}
+
+#inicio h2, #destaques h2, #encomendas h2 {
+    font-size: 30px;
+    color: var(--cor-escura);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#inicio p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- GRID DA VITRINE DE PRODUTOS (INDEX) --- */
+.bolos-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.bolo-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    width: 30%;
+    min-width: 280px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.bolo-card:hover {
+    transform: translateY(-5px);
+}
+
+.bolo-img-placeholder {
+    width: 100%;
+    overflow: hidden;
+    background-color: #e6ccb2;
+}
+
+.bolo-img-placeholder img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.bolo-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.bolo-info h3 {
+    font-size: 20px;
+    color: var(--cor-escura);
+    margin-bottom: 10px;
+}
+
+.bolo-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.bolo-preco {
+    font-weight: bold;
+    color: var(--cor-destaque);
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.btn-card {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* --- SEÇÃO DE ENCOMENDAS & CONTACTOS --- */
+#encomendas {
+    background-color: var(--cor-clara);
+    border-top: 1px solid #e6ccb2;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 12px;
+}
+
+.subtitulo {
+    font-size: 16px;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.contatos-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.contato-item {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.contato-item strong {
+    color: var(--cor-escura);
+}
+
+/* --- PÁGINA DE DETALHES (detalhes.html) --- */
+
+/* Esconde as secções de detalhe por padrão */
+.detalhe-produto {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+/* Exibe exclusivamente o produto correspondente ao ID ativo na URL (:target) */
+.detalhe-produto:target {
+    display: block;
+}
+
+.detalhe-flex {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.detalhe-flex img {
+    max-width: 450px;
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.detalhe-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.detalhe-info h2 {
+    color: var(--cor-escura);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.detalhe-descricao {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.detalhe-entrega {
+    background-color: var(--cor-clara);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    color: #4a3b32;
+    border-left: 4px solid var(--cor-destaque);
+}
+
+.btn-comprar-pagina {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+}
+
+/* --- NOTIFICAÇÃO EM CSS PURO: "Obrigado pela compra" --- */
+.caixa-sucesso {
+    display: none; /* Mantém escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Exibe a tela cheia de sucesso quando a URL apontar para #sucesso */
+.caixa-sucesso:target {
+    display: flex;
+}
+
+.sucesso-conteudo {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    max-width: 400px;
+    width: 90%;
+}
+
+.sucesso-conteudo p {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--cor-escura);
+    margin-bottom: 25px;
+}
+
+/* --- RODAPÉ (FOOTER): Cor Escura --- */
+footer {
+    background-color: var(--cor-escura);
+    color: var(--texto-claro);
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 5px solid var(--cor-destaque);
+    margin-top: 60px;
+}
+
+.footer-principal {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.footer-secundario {
+    font-size: 13px;
+    color: #dcd0c4;
+    font-style: italic;
+}
+
+/* --- RESPONSIVIDADE ADICIONAL --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .header-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .botão {
+        margin: 0 5px;
+    }
+    
+    .bolo-card {
+        width: 100%;
+    }
+    
+    .detalhe-flex {
+        flex-direction: column;
+    }
+    
+    .detalhe-flex img {
+        max-width: 100%;
+    }
+}
